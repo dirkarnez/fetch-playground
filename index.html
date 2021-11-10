@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <button type="button" class="download">Click me to fetch</button>
+  <button type="button" class="abort">Click me to abort</button>
+
+  <script>
+    var abortController = undefined;
+
+    var downloadBtn = document.querySelector('.download');
+    var abortBtn = document.querySelector('.abort');
+
+    downloadBtn.addEventListener('click', fetchVideo);
+
+    abortBtn.addEventListener('click', function () {
+      if (abortController) {
+        abortController.abort();
+        console.log('Download aborted');
+      }
+
+    });
+
+    function fetchVideo() {
+      abortController = new AbortController();
+
+      var myHeaders = new Headers();
+      myHeaders.append('pragma', 'no-cache');
+      myHeaders.append('Cache-Control', 'no-cache');
+
+      fetch('https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=2000ms', { signal: abortController.signal, headers: myHeaders, cache: "no-cache" })
+        .then(response => response.json())
+        .then(json => {
+          alert(JSON.stringify(json))
+        })
+        .catch(e => {
+          alert('Download error: ' + e.message);
+        })
+    }
+  </script>
+</body>
+</html>
