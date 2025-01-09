@@ -33,13 +33,22 @@
       myHeaders.append('Cache-Control', 'no-cache');
 
       fetch('https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=2000ms', { signal: abortController.signal, headers: myHeaders, cache: "no-cache" })
-        .then(response => response.json())
+        .then(response => {
+        if (!response.ok) {
+              throw new Error('Network response was not ok');
+        }
+              return response.json();
+        })
         .then(json => {
           alert(JSON.stringify(json))
         })
-        .catch(e => {
-          alert('Download error: ' + e.message);
-        })
+        .catch(error => {
+              if (error.message === 'Failed to fetch') {
+                    alert('There may be a CORS issue or the server is unreachable.');
+              } else {
+                    alert('Fetch error:', error);
+              }
+        });
     }
   </script>
 </body>
