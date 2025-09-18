@@ -8,6 +8,9 @@ fetch-playground
   - [AbortController - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 - [ ] Cache / No Cache
 
+### Tutorials
+- https://github.com/octokit/request.js/blob/main/src/fetch-wrapper.ts
+
 ### Download (client-side)
 ```
 .then(d => d.blob())
