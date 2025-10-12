@@ -10,6 +10,7 @@ fetch-playground
 
 ### Tutorials
 - https://github.com/octokit/request.js/blob/main/src/fetch-wrapper.ts
+- [javascript - Upload progress indicators for fetch? - Stack Overflow](https://stackoverflow.com/questions/35711724/upload-progress-indicators-for-fetch)
 
 ### Download (client-side)
 ```
