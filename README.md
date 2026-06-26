@@ -7,6 +7,8 @@ fetch-playground
 - [x] `AbortController`
   - [AbortController - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 - [ ] Cache / No Cache
+- [ ] debug print curl commands
+  - https://www.npmjs.com/package/fetch-to-curl
 
 ### Tutorials
 - https://github.com/octokit/request.js/blob/main/src/fetch-wrapper.ts
